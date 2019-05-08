@@ -36,6 +36,7 @@ const HomepagePage: React.FC<IProps> = (props: IProps) => {
 					<br/>
 					Přidat do košíku
 				</a>
+				<h3>0,-&nbsp;Kč</h3>
 			</div>
 		</div>
 	</>;

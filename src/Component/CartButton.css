@@ -1,5 +1,6 @@
 
 .shoppingCart {
+	z-index: 50;
 	font-size: 4rem;
 	position: fixed;
 	top: 1rem;

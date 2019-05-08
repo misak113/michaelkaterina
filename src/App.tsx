@@ -12,6 +12,7 @@ import Anchor from './Anchor';
 import CartPage from './Pages/CartPage';
 import { CartProvider } from './Context/CartContext';
 import CartButton from './Component/CartButton';
+import ContactPage from './Pages/ContactPage';
 
 const cartItemRef = React.createRef<HTMLLIElement>();
 
@@ -50,6 +51,12 @@ const pages = [
 		render: () => <CartPage/>,
 		ref: cartItemRef,
 	},
+	{
+		name: <CartButton/>,
+		path: '/kontakt',
+		render: () => <ContactPage/>,
+		hiddenInMenu: true,
+	},
 ];
 
 const App: React.FC = () => {
@@ -61,7 +68,7 @@ const App: React.FC = () => {
 			<div className="App">
 				<header className="App-header">
 					<ul className="nav justify-content-center">
-						{pages.map((page) => (
+						{pages.filter((page) => !page.hiddenInMenu).map((page) => (
 							<li key={page.path} ref={page.ref} className="nav-item">
 								<Anchor
 									className={classNames("nav-link", {
@@ -87,6 +94,18 @@ const App: React.FC = () => {
 						</>
 					)}
 				</section>
+				<footer className="container App-footer">
+					<ul className="nav justify-content-center">
+						<li className="nav-item">
+							<Anchor
+								className="nav-link"
+								href={'/kontakt'}
+							>
+								Kontakt
+							</Anchor>
+						</li>
+					</ul>
+				</footer>
 			</div>
 		</CartProvider>
 	);

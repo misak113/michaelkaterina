@@ -1,0 +1,48 @@
+
+.cartPage .media img {
+	height: 8rem;
+}
+
+.cartPage .price {
+	margin: 1rem 2rem;
+}
+
+.cartPage hr {
+	margin-top: 4rem;
+}
+
+.cartPage #confirmation-yes,
+.cartPage #confirmation-no {
+	transform: scale(2);
+	margin-top: 0.8rem;
+}
+
+.cartPage [for="confirmation-yes"],
+.cartPage [for="confirmation-no"] {
+	font-size: 150%;
+	margin-left: 1rem;
+}
+
+.cartPage .required {
+	color: red;
+}
+
+.cartPage #plusOne {
+	margin-left: -0.5rem;
+}
+
+.cartPage [for="plusOne"] {
+	margin-left: 1rem;
+}
+
+.cartPage #plusOneName {
+	margin-top: 1rem;
+}
+
+.cartPage .alert {
+	margin-top: 2rem;
+}
+
+.cartPage .form-group {
+	margin-top: 2rem;
+}

@@ -84,7 +84,7 @@ const App: React.FC = () => {
 						))}
 					</ul>
 				</header>
-				<section className="container">
+				<section className="container content">
 					{currentPage ? (
 						currentPage.render()
 					) : (

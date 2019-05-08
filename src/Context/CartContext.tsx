@@ -3,12 +3,15 @@ import React, { useState, ReactNode } from 'react';
 import './CartContext.css';
 
 export interface ICartItem {
+	id: string;
 	name: string;
+	description: string;
 }
 
 export interface ICartValue {
 	items: ICartItem[];
 	addItem: (item: ICartItem, fromRef?: React.RefObject<HTMLElement>) => Promise<void>;
+	removeItem: (item: ICartItem) => Promise<void>;
 }
 
 export const CartContext = React.createContext<ICartValue>({} as ICartValue);
@@ -29,11 +32,17 @@ function getElementCoordination(element: HTMLElement) {
 	};
 }
 
+const CART_ITEMS = 'CART_ITEMS';
+
 export function CartProvider(props: IOwnProps) {
-	const [items, setItems] = useState<ICartItem[]>([]);
-	const addItem = async (item: ICartItem, fromRef?: React.RefObject<HTMLElement>) => {
+	const storedCartItemsString = localStorage.getItem(CART_ITEMS);
+	const storedCartItems = storedCartItemsString ? JSON.parse(storedCartItemsString) : [];
+	const [items, setItems] = useState<ICartItem[]>(storedCartItems);
+	const addItem = async (addedItem: ICartItem, fromRef?: React.RefObject<HTMLElement>) => {
 		setTimeout(() => {
-			setItems([...items, item]);
+			const newCartItems = [...items.filter((item) => item.id !== addedItem.id), addedItem];
+			localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
+			setItems(newCartItems);
 		}, 2e3);
 
 		if (fromRef && fromRef.current) {
@@ -56,8 +65,13 @@ export function CartProvider(props: IOwnProps) {
 			}, 2e3);
 		}
 	};
+	const removeItem = async (removedItem: ICartItem) => {
+		const newCartItems = items.filter((item) => item.id !== removedItem.id);
+		localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
+		setItems(newCartItems);
+	};
 	return (
-		<CartContext.Provider value={{ addItem, items }}>
+		<CartContext.Provider value={{ addItem, removeItem, items }}>
 			{props.children}
 		</CartContext.Provider>
 	);

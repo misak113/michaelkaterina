@@ -9,13 +9,15 @@ const addToCartButton = React.createRef<HTMLAnchorElement>();
 
 const Product: React.FC<IProps> = (props: IProps) => {
 	const cartItem = {
+		id: 'wedding',
 		name: 'Svatba Kateřiny a Michaela',
+		description: 'Nezapomenutelný zážitek, na který budete ještě dlouho vzpomínat.',
 	};
 	return <div className="card product">
 		<img src={productImage} className="card-img-top" alt="Michael a Kateřina se berou"/>
 		<div className="card-body">
 			<h5 className="card-title">{cartItem.name}</h5>
-			<p className="card-text">Nezapomenutelný zážitek, na který budete ještě dlouho vzpomínat.</p>
+			<p className="card-text">{cartItem.description}</p>
 			<a
 				ref={addToCartButton}
 				href="#"

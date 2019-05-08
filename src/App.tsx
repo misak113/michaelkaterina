@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -10,6 +10,10 @@ import AccomodationPage from './Pages/AccomodationPage';
 import AgendaPage from './Pages/AgendaPage';
 import Anchor from './Anchor';
 import CartPage from './Pages/CartPage';
+import { CartProvider } from './Context/CartContext';
+import CartButton from './Component/CartButton';
+
+const cartItemRef = React.createRef<HTMLLIElement>();
 
 const pages = [
 	{
@@ -41,49 +45,50 @@ const pages = [
 		disabled: true,
 	},
 	{
-		name: <i className="shoppingCart fa fa-shopping-cart"/>,
+		name: <CartButton/>,
 		path: '/kosik',
 		render: () => <CartPage/>,
+		ref: cartItemRef,
 	},
 ];
 
 const App: React.FC = () => {
 	const [currentPath, changePath] = useState(window.location.pathname);
-	useEffect(() => {
-		window.history.onpushstate = () => setTimeout(() => changePath(window.location.pathname));
-	});
+	window.history.onpushstate = () => setTimeout(() => changePath(window.location.pathname));
 	const currentPage = pages.find((page) => page.path === currentPath);
 	return (
-		<div className="App">
-			<header className="App-header">
-				<ul className="nav justify-content-center">
-					{pages.map((page) => (
-						<li key={page.path} className="nav-item">
-							<Anchor
-								className={classNames("nav-link", {
-									'active': page.path === currentPath,
-									'disabled': page.disabled || false,
-								})}
-								href={page.path}
-							>
-								{page.name}
-								{page.path === currentPath ? <span className="sr-only">(current)</span> : null}
-							</Anchor>
-						</li>
-					))}
-				</ul>
-			</header>
-			<section className="container">
-				{currentPage ? (
-					currentPage.render()
-				) : (
-					<>
-						<h1>Stránka nenalezena</h1>
-						<p>Tato stránka nebyla nalezena. Prosím pokračujte na stránce <Anchor href="/">O svatbě</Anchor></p>
-					</>
-				)}
-			</section>
-		</div>
+		<CartProvider toRef={cartItemRef}>
+			<div className="App">
+				<header className="App-header">
+					<ul className="nav justify-content-center">
+						{pages.map((page) => (
+							<li key={page.path} ref={page.ref} className="nav-item">
+								<Anchor
+									className={classNames("nav-link", {
+										'active': page.path === currentPath,
+										'disabled': page.disabled || false,
+									})}
+									href={page.path}
+								>
+									{page.name}
+									{page.path === currentPath ? <span className="sr-only">(current)</span> : null}
+								</Anchor>
+							</li>
+						))}
+					</ul>
+				</header>
+				<section className="container">
+					{currentPage ? (
+						currentPage.render()
+					) : (
+						<>
+							<h1>Stránka nenalezena</h1>
+							<p>Tato stránka nebyla nalezena. Prosím pokračujte na stránce <Anchor href="/">O svatbě</Anchor></p>
+						</>
+					)}
+				</section>
+			</div>
+		</CartProvider>
 	);
 }
 

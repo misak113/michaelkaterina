@@ -1,0 +1,12 @@
+
+.shoppingCart {
+	font-size: 300%;
+	position: fixed;
+	top: 1rem;
+	right: 4rem;
+	color: #a0a0a0;
+}
+
+.shoppingCart.active {
+	color: #559955;
+}

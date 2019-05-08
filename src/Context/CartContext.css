@@ -1,0 +1,7 @@
+
+.cartItem {
+	position: absolute;
+	z-index: 100;
+	transition: ease 2s;
+	font-size: 300%;
+}

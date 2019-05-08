@@ -54,7 +54,7 @@ const pages = [
 
 const App: React.FC = () => {
 	const [currentPath, changePath] = useState(window.location.pathname);
-	window.history.onpushstate = () => setTimeout(() => changePath(window.location.pathname));
+	window.onpopstate = window.history.onpushstate = () => setTimeout(() => changePath(window.location.pathname));
 	const currentPage = pages.find((page) => page.path === currentPath);
 	return (
 		<CartProvider toRef={cartItemRef}>

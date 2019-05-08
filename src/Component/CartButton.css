@@ -1,12 +1,27 @@
 
 .shoppingCart {
-	font-size: 300%;
+	font-size: 4rem;
 	position: fixed;
 	top: 1rem;
 	right: 4rem;
 	color: #a0a0a0;
 }
 
-.shoppingCart.active {
+.shoppingCart i.active {
 	color: #559955;
+}
+
+.shoppingCart .popover {
+	text-align: center;
+	top: 5.5rem;
+	width: 20rem;
+	left: -12rem;
+}
+
+.shoppingCart .popover .arrow {
+	left: 12.5rem;
+}
+
+.shoppingCart .popover a {
+	margin-top: 1rem;
 }

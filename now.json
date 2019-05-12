@@ -1,4 +1,9 @@
 {
+  "version": 2,
   "name": "michaelkaterina",
-  "alias": ["michaelkaterina.cz", "www.michaelkaterina.cz"]
+  "alias": ["michaelkaterina.cz", "www.michaelkaterina.cz"],
+  "routes": [
+    { "src": "/((.*)\\.(\\w+))", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }

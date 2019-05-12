@@ -14,6 +14,7 @@ import { CartProvider } from './Context/CartContext';
 import CartButton from './Component/CartButton';
 import ContactPage from './Pages/ContactPage';
 import { DatabaseProvider } from './Context/DatabaseContext';
+const facebookLogo = require('./facebook-logo.png');
 
 const cartItemRef = React.createRef<HTMLLIElement>();
 
@@ -105,6 +106,15 @@ const App: React.FC = () => {
 								>
 									Kontakt
 								</Anchor>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									className="nav-link"
+									href="https://www.facebook.com/events/362213487833947/"
+								>
+									<img src={facebookLogo} width="20" height="20" /> Facebook Událost
+								</a>
 							</li>
 						</ul>
 					</footer>

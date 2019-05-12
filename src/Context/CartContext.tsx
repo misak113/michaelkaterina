@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import React, { useState, ReactNode } from 'react';
 import './CartContext.css';
 

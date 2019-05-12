@@ -13,6 +13,7 @@ import CartPage from './Pages/CartPage';
 import { CartProvider } from './Context/CartContext';
 import CartButton from './Component/CartButton';
 import ContactPage from './Pages/ContactPage';
+import { DatabaseProvider } from './Context/DatabaseContext';
 
 const cartItemRef = React.createRef<HTMLLIElement>();
 
@@ -64,50 +65,52 @@ const App: React.FC = () => {
 	window.onpopstate = window.history.onpushstate = () => setTimeout(() => changePath(window.location.pathname));
 	const currentPage = pages.find((page) => page.path === currentPath);
 	return (
-		<CartProvider toRef={cartItemRef}>
-			<div className="App">
-				<header className="App-header">
-					<ul className="nav justify-content-center">
-						{pages.filter((page) => !page.hiddenInMenu).map((page) => (
-							<li key={page.path} ref={page.ref} className="nav-item">
+		<DatabaseProvider>
+			<CartProvider toRef={cartItemRef}>
+				<div className="App">
+					<header className="App-header">
+						<ul className="nav justify-content-center">
+							{pages.filter((page) => !page.hiddenInMenu).map((page) => (
+								<li key={page.path} ref={page.ref} className="nav-item">
+									<Anchor
+										className={classNames("nav-link", {
+											'active': page.path === currentPath,
+											'disabled': page.disabled || false,
+										})}
+										href={page.path}
+									>
+										{page.name}
+										{page.path === currentPath ? <span className="sr-only">(current)</span> : null}
+									</Anchor>
+								</li>
+							))}
+						</ul>
+					</header>
+					<section className="container content">
+						{currentPage ? (
+							currentPage.render()
+						) : (
+							<>
+								<h1>Stránka nenalezena</h1>
+								<p>Tato stránka nebyla nalezena. Prosím pokračujte na stránce <Anchor href="/">O svatbě</Anchor></p>
+							</>
+						)}
+					</section>
+					<footer className="container App-footer">
+						<ul className="nav justify-content-center">
+							<li className="nav-item">
 								<Anchor
-									className={classNames("nav-link", {
-										'active': page.path === currentPath,
-										'disabled': page.disabled || false,
-									})}
-									href={page.path}
+									className="nav-link"
+									href={'/kontakt'}
 								>
-									{page.name}
-									{page.path === currentPath ? <span className="sr-only">(current)</span> : null}
+									Kontakt
 								</Anchor>
 							</li>
-						))}
-					</ul>
-				</header>
-				<section className="container content">
-					{currentPage ? (
-						currentPage.render()
-					) : (
-						<>
-							<h1>Stránka nenalezena</h1>
-							<p>Tato stránka nebyla nalezena. Prosím pokračujte na stránce <Anchor href="/">O svatbě</Anchor></p>
-						</>
-					)}
-				</section>
-				<footer className="container App-footer">
-					<ul className="nav justify-content-center">
-						<li className="nav-item">
-							<Anchor
-								className="nav-link"
-								href={'/kontakt'}
-							>
-								Kontakt
-							</Anchor>
-						</li>
-					</ul>
-				</footer>
-			</div>
-		</CartProvider>
+						</ul>
+					</footer>
+				</div>
+			</CartProvider>
+		</DatabaseProvider>
 	);
 }
 

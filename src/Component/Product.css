@@ -60,10 +60,9 @@
 @media screen and (min-width: 1400px) {
 	.product .arrow {
 		position: absolute;
-		top: 20%;
-		right: -70%;
-		width: 50%;
-		height: 80%;
-		transform: rotate(2deg) scaleY(-1);
+		top: 2vh;
+		right: -26vw;
+		width: 27vw;
+		height: 100%;
 	}
 }

@@ -17,6 +17,18 @@
 	font-family: AlluraRegular;
 }
 
+@media screen and (max-width: 600px) {
+	.nameHead {
+		font-size: 5rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.nameHead {
+		font-size: 3rem;
+	}
+}
+
 .App-header {
 	background-color: #efefef;
 }
@@ -49,5 +61,8 @@
 	.sideProduct.product .card-text,
 	.sideProduct.product img {
 		display: none;
+	}
+	.sideProduct.product .priceWrapper {
+		height: 5rem;
 	}
 }

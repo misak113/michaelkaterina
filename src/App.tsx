@@ -17,7 +17,7 @@ import { DatabaseProvider } from './Context/DatabaseContext';
 import Product from './Component/Product';
 const facebookLogo = require('./facebook-logo.png');
 
-const cartItemRef = React.createRef<HTMLLIElement>();
+const cartItemRef = React.createRef<HTMLAnchorElement>();
 
 const pages = [
 	{
@@ -64,10 +64,9 @@ const pages = [
 		path: 'https://www.facebook.com/events/362213487833947/',
 	},
 	{
-		name: <CartButton/>,
+		name: <CartButton buttonRef={cartItemRef} />,
 		path: '/kosik',
 		render: () => <CartPage/>,
-		ref: cartItemRef,
 	},
 ];
 
@@ -85,7 +84,7 @@ const App: React.FC = () => {
 					<header className="App-header">
 						<ul className="nav justify-content-center">
 							{pages.filter((page) => !page.hiddenInMenu).map((page) => (
-								<li key={page.path} ref={page.ref} className="nav-item">
+								<li key={page.path} className="nav-item">
 									<Anchor
 										className={classNames("nav-link", {
 											'active': page.path === currentPath,

@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import './CartButton.css';
 import { ORDER_SENT } from '../Pages/CartPage';
 
-type IProps = { children?: ReactNode } & ICartValue;
+type IProps = { children?: ReactNode; buttonRef: React.RefObject<any>; } & ICartValue;
 
 const CartButton: React.FC<IProps> = (props: IProps) => {
 	const [orderSent] = useState<boolean | undefined>(!!localStorage.getItem(ORDER_SENT) || undefined);
 
-	return <div className="shoppingCart">
+	return <div ref={props.buttonRef} className="shoppingCart">
 		{window.location.pathname !== '/kosik' && <i
 			className={classNames("fa fa-shopping-cart", {
 				'active': props.items.length > 0,

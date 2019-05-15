@@ -32,6 +32,15 @@ function getElementCoordination(element: HTMLElement) {
 	};
 }
 
+function getCartButtonCoordination() {
+	const doc = document.documentElement!;
+	const docTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+	return {
+		top: docTop + 50,
+		left: window.screen.width - 50,
+	};
+}
+
 const CART_ITEMS = 'CART_ITEMS';
 
 export function CartProvider(props: IOwnProps) {
@@ -48,16 +57,18 @@ export function CartProvider(props: IOwnProps) {
 		if (fromRef && fromRef.current) {
 			const fromCoordination = getElementCoordination(fromRef.current);
 			const floatElement = document.createElement('i');
-			floatElement.innerHTML = 'Zážitek';
+			floatElement.innerHTML = '♥';
 			floatElement.className = 'cartItem fa fa-box';
 			floatElement.style.top = fromCoordination.top + 'px';
-			floatElement.style.left = fromCoordination.left + 'px';
+			floatElement.style.left = (fromCoordination.left + 50) + 'px';
+			floatElement.style.opacity = '1';
 			document.body.appendChild(floatElement);
 			setTimeout(() => {
 				if (props.toRef.current) {
-					const toCoordination = getElementCoordination(props.toRef.current);
+					const toCoordination = getCartButtonCoordination();console.log(toCoordination);
 					floatElement.style.top = toCoordination.top + 'px';
 					floatElement.style.left = toCoordination.left + 'px';
+					floatElement.style.opacity = '0';
 				}
 			}, 200);
 			setTimeout(() => {

@@ -15,6 +15,12 @@
 	font-weight: normal;
 }
 
+@media screen and (max-width: 600px) {
+	.cartPage .media .price {
+		display: none;
+	}
+}
+
 .cartPage .media img {
 	height: 8rem;
 }

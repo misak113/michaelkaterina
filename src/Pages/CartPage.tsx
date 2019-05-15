@@ -122,7 +122,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 			<ul key={item.id} className="list-unstyled">
 				<li className="media">
 					<img src={productImage} className="mr-3" alt={item.name}/>
-					<div>
+					<div className="price">
 						<i>Cena:</i>
 						<h3 className="price">0&nbsp;Kč</h3>
 					</div>

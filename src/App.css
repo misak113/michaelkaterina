@@ -7,3 +7,23 @@
 .content {
 	margin-bottom: 10rem;
 }
+
+.nameHead {
+	background-color: #efefef;
+	padding-top: 3rem;
+	text-align: center;
+	font-size: 8rem;
+	font-family: AlluraRegular;
+}
+
+.App-header {
+	background-color: #efefef;
+}
+
+.App-header li {
+	padding-left: 2rem;
+	text-transform: uppercase;
+}
+.App-header li a {
+	color: black;
+}

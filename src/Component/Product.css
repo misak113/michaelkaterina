@@ -1,6 +1,65 @@
 
 .product {
-	width: 15rem;
+	width: 20rem;
 	max-width: 100%;
+	text-align: left;
+}
+
+.product h5 {
+	font-size: 150%;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding-left: 2rem;
+}
+
+.product hr {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.product .priceWrapper {
+	position: relative;
+	width: 100%;
+}
+
+.product .card-text {
+	padding-left: 2rem;
+	padding-bottom: 1rem;
+}
+
+.product a {
+	position: absolute;
 	text-align: center;
+	display: table-cell;
+	right: 0;
+	top: 0;
+	font-size: 150%;
+	background-color: rgb(133, 56, 64);
+}
+
+.product .price {
+	text-align: left;
+	display: table-cell;
+	font-weight: normal;
+	font-size: 200%;
+	padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+	.product .arrow {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.product .arrow {
+		position: absolute;
+		top: 20%;
+		right: -70%;
+		width: 50%;
+		height: 80%;
+		transform: rotate(2deg) scaleY(-1);
+	}
 }

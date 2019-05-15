@@ -1,10 +1,11 @@
 import React, { useState, ReactNode } from 'react';
+import _ from 'lodash';
 import './CartContext.css';
 
 export interface ICartItem {
 	id: string;
 	name: string;
-	description: string;
+	description?: any;
 }
 
 export interface ICartValue {
@@ -39,7 +40,7 @@ export function CartProvider(props: IOwnProps) {
 	const [items, setItems] = useState<ICartItem[]>(storedCartItems);
 	const addItem = async (addedItem: ICartItem, fromRef?: React.RefObject<HTMLElement>) => {
 		setTimeout(() => {
-			const newCartItems = [...items.filter((item) => item.id !== addedItem.id), addedItem];
+			const newCartItems = [...items.filter((item) => item.id !== addedItem.id), _.omit(addedItem, 'description')];
 			localStorage.setItem(CART_ITEMS, JSON.stringify(newCartItems));
 			setItems(newCartItems);
 		}, 2e3);
@@ -47,7 +48,7 @@ export function CartProvider(props: IOwnProps) {
 		if (fromRef && fromRef.current) {
 			const fromCoordination = getElementCoordination(fromRef.current);
 			const floatElement = document.createElement('i');
-			floatElement.innerHTML = 'Produkt';
+			floatElement.innerHTML = 'Zážitek';
 			floatElement.className = 'cartItem fa fa-box';
 			floatElement.style.top = fromCoordination.top + 'px';
 			floatElement.style.left = fromCoordination.left + 'px';

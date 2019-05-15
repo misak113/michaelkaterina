@@ -12,3 +12,13 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+
+@font-face {
+	font-family: AlluraRegular;
+	src: url(./Allura-Regular.ttf);
+}
+
+@font-face {
+	font-family: WinterCalligraphy;
+	src: url(./Winter-Calligraphy.ttf);
+}

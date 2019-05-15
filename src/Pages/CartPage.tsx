@@ -124,7 +124,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 					<img src={productImage} className="mr-3" alt={item.name}/>
 					<div>
 						<i>Cena:</i>
-						<h3 className="price">0,-&nbsp;Kč</h3>
+						<h3 className="price">0&nbsp;Kč</h3>
 					</div>
 					<div className="media-body">
 						<h5 className="mt-0 mb-1">{item.name}</h5>
@@ -150,13 +150,15 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 					<label htmlFor="name"><span className="required">*</span> Jméno a Příjmení</label>
 					<input value={name} onChange={(event) => setName(event.target.value)} type="text" className="form-control" id="name" placeholder="Váše jméno a příjmení"/>
 				</div>
-				<div className="custom-control custom-radio custom-control-inline">
-					<input checked={confirmation === true} value={'1'} onChange={(event) => setConfirmation(event.target.checked as any)} type="radio" className="form-check-input" name="confirmation" id="confirmation-yes"/>
-					<label className="form-check-label" htmlFor="confirmation-yes">Velmi rád se zůčastním</label>
-				</div>
-				<div className="custom-control custom-radio custom-control-inline">
-					<input checked={confirmation === false} value={'0'} onChange={(event) => setConfirmation(!event.target.checked as any)} type="radio" className="form-check-input" name="confirmation" id="confirmation-no"/>
-					<label className="form-check-label" htmlFor="confirmation-no">Bohužel nemohu dorazit</label>
+				<div className="confirmationWrapper">
+					<div className="custom-control custom-radio custom-control-inline">
+						<input checked={confirmation === true} value={'1'} onChange={(event) => setConfirmation(event.target.checked as any)} type="radio" className="form-check-input" name="confirmation" id="confirmation-yes"/>
+						<label className="form-check-label" htmlFor="confirmation-yes">Velmi rád se zůčastním</label>
+					</div>
+					<div className="custom-control custom-radio custom-control-inline">
+						<input checked={confirmation === false} value={'0'} onChange={(event) => setConfirmation(!event.target.checked as any)} type="radio" className="form-check-input" name="confirmation" id="confirmation-no"/>
+						<label className="form-check-label" htmlFor="confirmation-no">Bohužel nemohu dorazit</label>
+					</div>
 				</div>
 				<div className="form-group">
 					<label htmlFor="email"><span className="required">*</span> Email</label>
@@ -169,20 +171,16 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 					<small id="phoneHelp" className="form-text text-muted">Nepotřebujeme ho nutně, ale někdy se může hodit</small>
 				</div>
 				<div className="form-group">
-					<label htmlFor="plusOneName">Doprovod</label>
-					<br/>
-					<input checked={plusOne} onChange={(event) => setPlusOne(event.target.checked)} type="checkbox" className="form-check-input" id="plusOne"/>
-					<label className="form-check-label" htmlFor="plusOne">Budete mít doprovod?</label>
 					{plusOne ? <>
 						<input value={plusOneName} onChange={(event) => setPlusOneName(event.target.value)} type="text" className="form-control" id="plusOneName" placeholder="Napište nám prosím jeho jméno"/>
 					</> : null}
+					<input checked={plusOne} onChange={(event) => setPlusOne(event.target.checked)} type="checkbox" className="form-check-input" id="plusOne"/>
+					<label className="form-check-label" htmlFor="plusOne">Budete mít doprovod?</label>
 				</div>
 				<div className="form-group">
-					<label htmlFor="childrenNames">Děti</label>
-					<small id="childrenHelp" className="form-text text-muted">Máte děti? Ty malé i velké moc rádi uvidíme. Napište nám, kolik jich bude a připište i jejich jména.</small>
-					<br/>
-					<label className="form-check-label" htmlFor="children">Kolik dětí?</label>
+					<label className="form-check-label" htmlFor="children">Máte děti?</label>
 					<input value={children} onChange={(event) => setChildren(parseInt(event.target.value))} type="number" className="form-control" id="children" placeholder="Počet dětí"/>
+					<small id="childrenHelp" className="form-text text-muted">Ty malé i velké moc rádi uvidíme. Napište nám, kolik jich bude a připište i jejich jména.</small>
 					{children > 0 ? _.range(0, children).map((i: number) => (
 						<input key={i} value={childrenNames[i]} onChange={(event) => {
 							const newChildrenNames = [...childrenNames];
@@ -191,17 +189,17 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 						}} type="text" className="form-control" id="plusOneName" placeholder={`Jméno dítěte ${i + 1}`}/>
 					)) : null}
 				</div>
-				<div className="form-group">
+				<div className="form-group textarea">
 					<label htmlFor="food">Stravování</label>
 					<textarea value={food} onChange={(event) => setFood(event.target.value)} className="form-control" id="food" placeholder="Napište svá stravovací omezení"/>
 					<small id="foodHelp" className="form-text text-muted">Týká se Vás nějaké stravovací omezení či speciální návyky? Dejte nám vědět. Se všemi si zajisté poradíme.</small>
 				</div>
-				<div className="form-group">
+				<div className="form-group textarea">
 					<label htmlFor="note">Poznámka</label>
 					<textarea value={note} onChange={(event) => setNote(event.target.value)} className="form-control" id="note" placeholder="Je ještě něco, na co bychom neměli zapomenout?"/>
 				</div>
 
-				<button disabled={!isValid()} type="submit" className="btn btn-primary">Odeslat objednávku</button>
+				<button disabled={!isValid()} type="submit" className="btn btn-default">Odeslat objednávku</button>
 				{!name && <div className="alert alert-warning" role="alert">Zadejte prosím své jméno</div>}
 				{(confirmation === true && (!email || !isValidEmail(email))) && <div className="alert alert-warning" role="alert">Zadejte prosím správný email</div>}
 				{confirmation === undefined && <div className="alert alert-warning" role="alert">Zaškrtněte prosím, zda se zůčastníš či ne</div>}

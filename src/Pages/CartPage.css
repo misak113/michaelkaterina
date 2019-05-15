@@ -1,4 +1,20 @@
 
+.cartPage h2 {
+	padding-top: 5rem;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 150%;
+}
+
+.cartPage .media {
+	margin-top: 3rem;
+}
+
+.cartPage .media h5 {
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
 .cartPage .media img {
 	height: 8rem;
 }
@@ -35,7 +51,7 @@
 	margin-left: 1rem;
 }
 
-.cartPage #plusOneName {
+.cartPage #children {
 	margin-top: 1rem;
 }
 
@@ -45,4 +61,47 @@
 
 .cartPage .form-group {
 	margin-top: 2rem;
+}
+
+.cartPage label {
+	clear: both;
+}
+
+.cartPage input[type="text"],
+.cartPage input[type="number"],
+.cartPage input[type="phone"],
+.cartPage input[type="email"],
+.cartPage textarea {
+	float: right;
+	clear: both;
+	display: inline-block;
+	width: 70%;
+}
+
+.textarea {
+	padding-top: 2rem;
+}
+
+.cartPage .confirmationWrapper {
+	text-align: center;
+	margin-left: 15rem;
+	margin-top: 2rem;
+}
+
+.cartPage .form-group {
+	clear: both;
+}
+
+.cartPage button {
+	clear: both;
+	float: right;
+	margin: 2rem;
+	color: white;
+	text-align: center;
+	font-size: 130%;
+	background-color: rgb(133, 56, 64);
+}
+
+.cartPage .alert {
+	clear: both;
 }

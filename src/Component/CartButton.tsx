@@ -22,11 +22,11 @@ const CartButton: React.FC<IProps> = (props: IProps) => {
 				<div className="arrow"></div>
 				<h3 className="popover-header"></h3>
 				<div className="popover-body">
-					Právě jste si přidali nezapomenutelný zážitek do vašeho košíku.<br/>
-					Pro dokončení pokračujte do objednávky.
+					Právě jste si přidali do košíku neopakovatelnou životní událost ♥<br/>
+					<b>Zbývá jen potvrdit, že s vámi<br/>můžeme počítat.</b><br/>
 					<a
 						href="/kosik"
-						className="btn btn-primary"
+						className="btn btn-secondary"
 					>
 						<i className="fa fa-shopping-cart"/>
 						<br/>

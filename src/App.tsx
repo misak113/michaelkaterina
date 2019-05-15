@@ -32,32 +32,36 @@ const pages = [
 	{
 		name: 'Dary',
 		path: '/dary',
-		disabled: true,
+		disabled: false,
 		render: () => <GiftsPage/>,
 	},
 	{
 		name: 'Ubytování',
 		path: '/ubytovani',
 		render: () => <AccomodationPage/>,
-		disabled: true,
+		disabled: false,
 	},
 	{
 		name: 'Harmonogram',
 		path: '/harmonogram',
 		render: () => <AgendaPage/>,
-		disabled: true,
+		disabled: false,
+	},
+	{
+		name: 'Kontakt',
+		path: '/kontakt',
+		render: () => <ContactPage/>,
+		hiddenInMenu: false,
+	},
+	{
+		name: <img src={facebookLogo} width="20" height="20" />,
+		path: 'https://www.facebook.com/events/362213487833947/',
 	},
 	{
 		name: <CartButton/>,
 		path: '/kosik',
 		render: () => <CartPage/>,
 		ref: cartItemRef,
-	},
-	{
-		name: <CartButton/>,
-		path: '/kontakt',
-		render: () => <ContactPage/>,
-		hiddenInMenu: true,
 	},
 ];
 
@@ -69,6 +73,9 @@ const App: React.FC = () => {
 		<DatabaseProvider>
 			<CartProvider toRef={cartItemRef}>
 				<div className="App">
+					<header className="nameHead">
+						Kateřina &amp; Michael
+					</header>
 					<header className="App-header">
 						<ul className="nav justify-content-center">
 							{pages.filter((page) => !page.hiddenInMenu).map((page) => (
@@ -79,6 +86,7 @@ const App: React.FC = () => {
 											'disabled': page.disabled || false,
 										})}
 										href={page.path}
+										target={page.path.indexOf('https://www.facebook.com') === 0 ? '_blank' : undefined}
 									>
 										{page.name}
 										{page.path === currentPath ? <span className="sr-only">(current)</span> : null}
@@ -86,10 +94,11 @@ const App: React.FC = () => {
 								</li>
 							))}
 						</ul>
+						<hr/>
 					</header>
 					<section className="container content">
 						{currentPage ? (
-							currentPage.render()
+							currentPage.render && currentPage.render()
 						) : (
 							<>
 								<h1>Stránka nenalezena</h1>
@@ -97,27 +106,6 @@ const App: React.FC = () => {
 							</>
 						)}
 					</section>
-					<footer className="container App-footer">
-						<ul className="nav justify-content-center">
-							<li className="nav-item">
-								<Anchor
-									className="nav-link"
-									href={'/kontakt'}
-								>
-									Kontakt
-								</Anchor>
-							</li>
-							<li>
-								<a
-									target="_blank"
-									className="nav-link"
-									href="https://www.facebook.com/events/362213487833947/"
-								>
-									<img src={facebookLogo} width="20" height="20" /> Facebook Událost
-								</a>
-							</li>
-						</ul>
-					</footer>
 				</div>
 			</CartProvider>
 		</DatabaseProvider>

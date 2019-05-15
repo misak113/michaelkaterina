@@ -5,11 +5,11 @@
 	position: fixed;
 	top: 1rem;
 	right: 4rem;
-	color: #a0a0a0;
+	color: #333333;
 }
 
 .shoppingCart i.active {
-	color: #559955;
+	color: #555555;
 }
 
 .shoppingCart .popover {
@@ -24,5 +24,9 @@
 }
 
 .shoppingCart .popover a {
+	color: white;
 	margin-top: 1rem;
+	text-align: center;
+	font-size: 130%;
+	background-color: rgb(133, 56, 64);
 }

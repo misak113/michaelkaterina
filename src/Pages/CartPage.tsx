@@ -96,20 +96,20 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 
 	if (orderSent) {
 		return <div className="cartPage">
-			<h2>Objednávka úspěšně odeslána</h2>
-			<p>
+			<h2 className="confirmationText">Objednávka úspěšně odeslána</h2>
+			<p className="confirmationText">
 				{
 					confirmation
-						? 'Děkujeme za potvrzení účasti. Budeme se na vás moc těšit. O novinkách a dalších plánech vám dáme včas vědět 😊'
-						: 'Je nám líto, že se nebudete moct zůčasnit, ale určitě si nejdeme jinou chvíli, kdy to spolu oslavíme.'
+						? <>Děkujeme za potvrzení účasti, budeme se na vás moc těšit 😊 <br/>O novinkách a dalších plánech vám dáme včas vědět.</>
+						: 'Je nám líto, že se nebudete moct zůčasnit. Určitě si ale najdeme jinou chvíli, kdy to společmě oslavíme.'
 				}
 				<br/><br/>
 				<small>
-					Pokud jste chcete provést jakékoliv změny, můžete tak učinit <a href="#" onClick={(event) => {
+					Chcete-li provést jakékoli změny, můžete tak učinit <a href="#" onClick={(event) => {
 						event.preventDefault();
 						setOrderSent(false);
 					}}>klinutím zde</a><br/>
-					a nebo nám dejte vědět na emailovou adresu <a href="mailto: zabka.michael@gmail.com">zabka.michael@gmail.com</a>
+					anebo nám dejte vědět na e-mailovou adresu <a href="mailto: zabka.michael@gmail.com">zabka.michael@gmail.com</a>
 				</small>
 			</p>
 		</div>;
@@ -117,18 +117,18 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 
 	return <div className="cartPage">
 		<h2>Nákupní košík</h2>
+		<hr/>
 
 		{props.items.map((item) => (
 			<ul key={item.id} className="list-unstyled">
 				<li className="media">
 					<img src={productImage} className="mr-3" alt={item.name}/>
-					<div className="price">
-						<i>Cena:</i>
-						<h3 className="price">0&nbsp;Kč</h3>
-					</div>
 					<div className="media-body">
-						<h5 className="mt-0 mb-1">{item.name}</h5>
+						<h5>{item.name}</h5>
 						{item.description}
+					</div>
+					<div className="price">
+						<h3 className="price">0&nbsp;Kč</h3>
 					</div>
 					<div>
 						<a href="#" className="button close" onClick={(event) => {
@@ -147,8 +147,8 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 			<h2>Informace o vás</h2>
 			<form onSubmit={submitOrder}>
 				<div className="form-group">
-					<label htmlFor="name"><span className="required">*</span> Jméno a Příjmení</label>
-					<input value={name} onChange={(event) => setName(event.target.value)} type="text" className="form-control" id="name" placeholder="Váše jméno a příjmení"/>
+					<label htmlFor="name"><span className="required">*</span> Jméno a příjmení</label>
+					<input value={name} onChange={(event) => setName(event.target.value)} type="text" className="form-control" id="name" placeholder=""/>
 				</div>
 				<div className="confirmationWrapper">
 					<div className="custom-control custom-radio custom-control-inline">
@@ -161,26 +161,26 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 					</div>
 				</div>
 				<div className="form-group">
-					<label htmlFor="email"><span className="required">*</span> Email</label>
-					<input value={email} onChange={(event) => setEmail(event.target.value)} type="email" className="form-control" id="email" placeholder="Váš email"/>
-					<small id="emailHelp" className="form-text text-muted">Použijeme ho, abychom Vám mohli oznámit neočekáváné novinky</small>
+					<label htmlFor="email"><span className="required">*</span> E-mail</label>
+					<input value={email} onChange={(event) => setEmail(event.target.value)} type="email" className="form-control" id="email" placeholder=""/>
+					<small id="emailHelp" className="form-text text-muted">Použijeme ho, abychom vám mohli oznámit neočekáváné novinky.</small>
 				</div>
 				<div className="form-group">
 					<label htmlFor="phone">Telefon</label>
-					<input value={phone} onChange={(event) => setPhone(event.target.value)} type="phone" className="form-control" id="phone" placeholder="Vaše telefonní číslo"/>
-					<small id="phoneHelp" className="form-text text-muted">Nepotřebujeme ho nutně, ale někdy se může hodit</small>
+					<input value={phone} onChange={(event) => setPhone(event.target.value)} type="phone" className="form-control" id="phone" placeholder=""/>
+					<small id="phoneHelp" className="form-text text-muted">Nepotřebujeme ho nutně, ale někdy se může hodit.</small>
 				</div>
 				<div className="form-group">
 					{plusOne ? <>
 						<input value={plusOneName} onChange={(event) => setPlusOneName(event.target.value)} type="text" className="form-control" id="plusOneName" placeholder="Napište nám prosím jeho jméno"/>
 					</> : null}
 					<input checked={plusOne} onChange={(event) => setPlusOne(event.target.checked)} type="checkbox" className="form-check-input" id="plusOne"/>
-					<label className="form-check-label plusOneLabel" htmlFor="plusOne">Budete mít doprovod?</label>
+					<label className="form-check-label plusOneLabel" htmlFor="plusOne">Budete mít doprovod?</label>
 				</div>
 				<div className="form-group">
 					<label className="form-check-label" htmlFor="children">Máte děti?</label>
 					<input value={children} onChange={(event) => setChildren(parseInt(event.target.value))} type="number" className="form-control" id="children" placeholder="Počet dětí"/>
-					<small id="childrenHelp" className="form-text text-muted">Ty malé i velké moc rádi uvidíme. Napište nám, kolik jich bude a připište i jejich jména.</small>
+					<small id="childrenHelp" className="form-text text-muted">Ty malé i velké moc rádi uvidíme. Napište nám, kolik jich bude <br></br>a připište i jejich jména.</small>
 					{children > 0 ? _.range(0, children).map((i: number) => (
 						<input key={i} value={childrenNames[i]} onChange={(event) => {
 							const newChildrenNames = [...childrenNames];
@@ -191,12 +191,12 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 				</div>
 				<div className="form-group textarea">
 					<label htmlFor="food">Stravování</label>
-					<textarea value={food} onChange={(event) => setFood(event.target.value)} className="form-control" id="food" placeholder="Napište svá stravovací omezení"/>
-					<small id="foodHelp" className="form-text text-muted">Týká se Vás nějaké stravovací omezení či speciální návyky? Dejte nám vědět. Se všemi si zajisté poradíme.</small>
+					<textarea value={food} onChange={(event) => setFood(event.target.value)} className="form-control" id="food" placeholder=""/>
+					<small id="foodHelp" className="form-text text-muted">Týká se Vás nějaké stravovací omezení či speciální návyky? Dejte nám vědět. Se všemi si poradíme.</small>
 				</div>
 				<div className="form-group textarea">
 					<label htmlFor="note">Poznámka</label>
-					<textarea value={note} onChange={(event) => setNote(event.target.value)} className="form-control" id="note" placeholder="Je ještě něco, na co bychom neměli zapomenout?"/>
+					<textarea value={note} onChange={(event) => setNote(event.target.value)} className="form-control" id="note" placeholder=""/>
 				</div>
 
 				<button disabled={!isValid()} type="submit" className="btn btn-default">Odeslat objednávku</button>

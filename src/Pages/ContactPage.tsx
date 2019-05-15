@@ -13,7 +13,7 @@ const ContactPage: React.FC = () => {
 		{contactImageElement('before')}
 		<h2>Naše kontakty</h2>
 		<p>
-			Pro případ, že budete něco potřebovat, neváhejte nám dát vědět.
+			Budeme rádi, když se na nás obrátíte s jakýmkoli dotazem.
 		</p>
 		<table className="table">
 			<tbody>
@@ -32,13 +32,14 @@ const ContactPage: React.FC = () => {
 					<td><i className="fa fa-envelope-open"/> <a href="mailto: svecova.svec@gmail.com">svecova.svec@gmail.com</a></td>
 				</tr>
 				<tr>
-					<td colSpan={2} style={{ textAlign: 'center' }}>
+					<td/>
+					<td>
 						<a
 							target="_blank"
-							className="nav-link"
+							className="facebook nav-link"
 							href="https://www.facebook.com/events/362213487833947/"
 						>
-							<img src={facebookLogo} width="20" height="20" /> Facebook Událost
+							<img src={facebookLogo} width="20" height="20" /> Facebook událost
 						</a>
 					</td>
 				</tr>
@@ -48,7 +49,7 @@ const ContactPage: React.FC = () => {
 					</th>
 					<td>
 						{showAddress
-							? <>Ratibořská 752/30, <br/> Praha 8 - Bohince, <br/> 181 00</>
+							? <>Ratibořská 752/30, <br/> Praha 8 - Bohnice, <br/> 181 00</>
 							: <button className="btn btn-info" onClick={(event) => {
 								event.preventDefault();
 								setShowAddress(true);

@@ -3,7 +3,7 @@ import './AgendaPage.css';
 
 const AgendaPage: React.FC = () => {
 	return <div className="agenda">
-		<h2>Harmonogram svatebního dne vám dáme brzy vědět.</h2>
+		<h2>Harmonogram svatebního dne vám brzy představíme.</h2>
 	</div>;
 };
 export default AgendaPage;

@@ -29,6 +29,10 @@
 	display: none;
 }
 
+.contact .facebook {
+	padding-left: 0;
+}
+
 @media screen and (max-width: 800px) {
 	.contact .contactImage {
 		float: none;

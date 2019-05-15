@@ -24,7 +24,7 @@ const LocationPage: React.FC = () => {
 		{locationElement('before')}
 		<h2>Místo konání</h2>
 		<p>
-			Na okraji městysu jménem Škvorec, která je jen pár kilometrů <br/>
+			Na okraji městysu jménem Škvorec, který je jen pár kilometrů <br/>
 			od hlavního města, stojí velký statek s příhodným<br/>
 			jménem  - <a target="_blank" href="http://www.statekuprahy.cz">Statek u Prahy</a>.
 		</p>

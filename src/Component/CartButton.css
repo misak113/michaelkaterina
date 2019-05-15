@@ -6,16 +6,12 @@
 	top: 1rem;
 	right: 4rem;
 	color: #333333;
-}
-
-@media screen and (max-width: 1200px) {
-	.shoppingCart {
-		top: 7rem;
-	}
+	opacity: 0.3;
 }
 
 .shoppingCart i.active {
 	color: #555555;
+	opacity: 1;
 }
 
 .shoppingCart .popover {

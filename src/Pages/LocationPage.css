@@ -12,13 +12,6 @@
 	font-size: 120%;
 }
 
-.location .plan {
-	width: 60%;
-	clear: both;
-	text-align: center;
-	margin-top: 10rem;
-}
-
 .location .mapouter {
 	float: left;
 	margin-right: 2rem;
@@ -26,6 +19,29 @@
 	text-align: right;
 	height: 600px;
 	width: 600px;
+	max-width: 100%;
+}
+
+.location .mapouter.before {
+	display: block;
+}
+
+.location .mapouter.after {
+	display: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.location .mapouter {
+		float: none;
+	}
+
+	.location .mapouter.before {
+		display: none;
+	}
+
+	.location .mapouter.after {
+		display: block;
+	}
 }
 
 .location .gmap_canvas {
@@ -33,9 +49,11 @@
 	background: none !important;
 	height: 600px;
 	width: 600px;
+	max-width: 100%;
 }
 
 .location .gmap_canvas iframe {
 	height: 600px;
 	width: 600px;
+	max-width: 100%;
 }

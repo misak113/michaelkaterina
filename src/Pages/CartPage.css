@@ -88,6 +88,20 @@
 	margin-top: 2rem;
 }
 
+.cartPage .text-muted {
+	max-width: 20%;
+}
+
+@media screen and (max-width: 800px) {
+	.cartPage .confirmationWrapper {
+		margin-left: auto;
+	}
+
+	.cartPage .plusOneLabel {
+		width: 3rem;
+	}
+}
+
 .cartPage .form-group {
 	clear: both;
 }

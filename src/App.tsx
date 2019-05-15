@@ -10,10 +10,11 @@ import AccomodationPage from './Pages/AccomodationPage';
 import AgendaPage from './Pages/AgendaPage';
 import Anchor from './Anchor';
 import CartPage from './Pages/CartPage';
-import { CartProvider } from './Context/CartContext';
+import { CartProvider, CartContext, ICartValue } from './Context/CartContext';
 import CartButton from './Component/CartButton';
 import ContactPage from './Pages/ContactPage';
 import { DatabaseProvider } from './Context/DatabaseContext';
+import Product from './Component/Product';
 const facebookLogo = require('./facebook-logo.png');
 
 const cartItemRef = React.createRef<HTMLLIElement>();
@@ -28,30 +29,35 @@ const pages = [
 		name: 'Místo',
 		path: '/misto',
 		render: () => <LocationPage/>,
+		showProductOnSide: true,
 	},
 	{
 		name: 'Dary',
 		path: '/dary',
 		disabled: false,
 		render: () => <GiftsPage/>,
+		showProductOnSide: true,
 	},
 	{
 		name: 'Ubytování',
 		path: '/ubytovani',
 		render: () => <AccomodationPage/>,
 		disabled: false,
+		showProductOnSide: true,
 	},
 	{
 		name: 'Harmonogram',
 		path: '/harmonogram',
 		render: () => <AgendaPage/>,
 		disabled: false,
+		showProductOnSide: true,
 	},
 	{
 		name: 'Kontakt',
 		path: '/kontakt',
 		render: () => <ContactPage/>,
 		hiddenInMenu: false,
+		showProductOnSide: true,
 	},
 	{
 		name: <img src={facebookLogo} width="20" height="20" />,
@@ -96,6 +102,13 @@ const App: React.FC = () => {
 						</ul>
 						<hr/>
 					</header>
+					<CartContext.Consumer>
+						{(value: ICartValue) => (
+							value.items.length === 0 && currentPage && currentPage.showProductOnSide && (
+								<Product className="sideProduct"/>
+							)
+						)}
+					</CartContext.Consumer>
 					<section className="container content">
 						{currentPage ? (
 							currentPage.render && currentPage.render()
@@ -105,7 +118,9 @@ const App: React.FC = () => {
 								<p>Tato stránka nebyla nalezena. Prosím pokračujte na stránce <Anchor href="/">O svatbě</Anchor></p>
 							</>
 						)}
+						<div className="clearfix"/>
 					</section>
+					<footer className="App-footer"></footer>
 				</div>
 			</CartProvider>
 		</DatabaseProvider>

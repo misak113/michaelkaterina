@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import './LocationPage.css';
 
 const planImage = require('./planek.jpg');
 
 const LocationPage: React.FC = () => {
-	return <div className="location">
-		<div className="mapouter">
+	const locationElement = (className: string) => (
+		<div className={classNames("mapouter", className)}>
 			<div className="gmap_canvas">
 				<iframe
 					id="gmap_canvas"
@@ -18,6 +19,9 @@ const LocationPage: React.FC = () => {
 				<a href="https://www.emojilib.com">emojilib.com</a>
 			</div>
 		</div>
+	);
+	return <div className="location">
+		{locationElement('before')}
 		<h2>Místo konání</h2>
 		<p>
 			Na okraji městysu jménem Škvorec, která je jen pár kilometrů <br/>
@@ -42,7 +46,7 @@ const LocationPage: React.FC = () => {
 			Pokud dáte přednost hromadné dopravě, doporučujeme jet vlakem z <i>Hlavního nádraží</i>, vystoupit v Úvalech a přes zastávku <i>Úvaly</i>, <br/>
 			<i>U Mlýna</i> dojet autobusem až na <i>Škvorec, nám.</i> Odtud je statek vzdálen jen asi 150 metrů chůze.
 		</p>
-		<img src={planImage} className="plan" alt="plánek"/>
+		{locationElement('after')}
 	</div>;
 };
 export default LocationPage;

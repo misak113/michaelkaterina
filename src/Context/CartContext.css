@@ -3,5 +3,7 @@
 	position: absolute;
 	z-index: 100;
 	transition: ease 2s;
+	text-transform: uppercase;
+	font-weight: normal;
 	font-size: 300%;
 }

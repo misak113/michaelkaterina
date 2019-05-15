@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import './ContactPage.css';
 import contactImage from './contact.jpg';
 const facebookLogo = require('../facebook-logo.png');
@@ -6,8 +7,10 @@ const facebookLogo = require('../facebook-logo.png');
 const ContactPage: React.FC = () => {
 	const [showAddress, setShowAddress] = useState(false);
 
+	const contactImageElement = (className: string) => <img src={contactImage} className={classNames("contactImage", className)} alt="Michael a Kateřina"/>;
+
 	return <div className="contact">
-		<img src={contactImage} className="contactImage" alt="Michael a Kateřina"/>
+		{contactImageElement('before')}
 		<h2>Naše kontakty</h2>
 		<p>
 			Pro případ, že budete něco potřebovat, neváhejte nám dát vědět.
@@ -55,6 +58,7 @@ const ContactPage: React.FC = () => {
 				</tr>
 			</tbody>
 		</table>
+		{contactImageElement('after')}
 	</div>;
 };
 export default ContactPage;

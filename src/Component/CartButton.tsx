@@ -10,11 +10,11 @@ const CartButton: React.FC<IProps> = (props: IProps) => {
 	const [orderSent] = useState<boolean | undefined>(!!localStorage.getItem(ORDER_SENT) || undefined);
 
 	return <div className="shoppingCart">
-		<i
+		{window.location.pathname !== '/kosik' && <i
 			className={classNames("fa fa-shopping-cart", {
 				'active': props.items.length > 0,
 			})}
-		/>
+		/>}
 		{!orderSent && props.items.length > 0 && window.location.pathname !== '/kosik' ? (
 			<div
 				className="popover fade show bs-popover-bottom"

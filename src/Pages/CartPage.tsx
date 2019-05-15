@@ -54,7 +54,8 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 		[email, name, note, food, phone, confirmation, plusOne, plusOneName, children, childrenNames],
 	);
 
-	const createRegistrationDocument = () => ({
+	const createRegistrationDocument = () => _.omitBy({
+		createdAt: new Date().toISOString(),
 		name,
 		email,
 		note,
@@ -65,7 +66,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 		plusOneName,
 		children,
 		childrenNames,
-	});
+	}, _.isUndefined);
 
 	const submitOrder = async (event: React.FormEvent<HTMLFormElement>) => {
 		setSubmitingFailed(false);
@@ -97,10 +98,9 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 		return <div className="cartPage">
 			<h2>Objednávka úspěšně odeslána</h2>
 			<p>
-				Děkujeme za Vaši registraci na svatbu.<br/>
 				{
 					confirmation
-						? 'Moc se na vás budeme těšit. Pokud budou k dispozici jakekoliv další informace, určitě se vám ihned ozveme.'
+						? 'Děkujeme za potvrzení účasti. Moc se na vás budeme těšit. O novinkách a dalších plánech vám dáme včas vědět 😊'
 						: 'Je nám líto, že se nebudete moct zůčasnit, ale určitě si nejdeme jinou chvíli, kdy to spolu oslavíme.'
 				}
 				<br/><br/>
@@ -175,7 +175,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 						<input value={plusOneName} onChange={(event) => setPlusOneName(event.target.value)} type="text" className="form-control" id="plusOneName" placeholder="Napište nám prosím jeho jméno"/>
 					</> : null}
 					<input checked={plusOne} onChange={(event) => setPlusOne(event.target.checked)} type="checkbox" className="form-check-input" id="plusOne"/>
-					<label className="form-check-label" htmlFor="plusOne">Budete mít doprovod?</label>
+					<label className="form-check-label plusOneLabel" htmlFor="plusOne">Budete mít doprovod?</label>
 				</div>
 				<div className="form-group">
 					<label className="form-check-label" htmlFor="children">Máte děti?</label>

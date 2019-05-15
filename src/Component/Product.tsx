@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
+import classNames from 'classnames';
 import { withCart, ICartValue } from "../Context/CartContext";
 import productImage from './product.jpg';
 import arrowImage from './arrow.png';
 import './Product.css';
 
-type IProps = { children?: ReactNode } & ICartValue;
+type IProps = { children?: ReactNode; className?: string } & ICartValue;
 
 const addToCartButton = React.createRef<HTMLAnchorElement>();
 
@@ -25,7 +26,7 @@ const Product: React.FC<IProps> = (props: IProps) => {
 			</p>
 		</>,
 	};
-	return <div className="card product">
+	return <div className={classNames("card product", props.className)}>
 		<img src={productImage} className="card-img-top" alt="Michael a Kateřina se berou"/>
 		<div className="card-body">
 			<h5 className="card-title">{cartItem.name}</h5>

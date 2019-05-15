@@ -1,6 +1,6 @@
 
 .product {
-	width: 20rem;
+	width: 50%;
 	max-width: 100%;
 	text-align: left;
 }
@@ -48,6 +48,10 @@
 }
 
 @media screen and (max-width: 1400px) {
+	.product {
+		width: 100%;
+	}
+
 	.product .arrow {
 		display: none;
 	}

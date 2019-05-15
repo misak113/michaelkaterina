@@ -1,11 +1,12 @@
 
 .App-footer {
+	clear: both;
 	bottom: 0;
 	background-color: white;
 }
 
 .content {
-	margin-bottom: 10rem;
+	margin-bottom: 8rem;
 }
 
 .nameHead {
@@ -26,4 +27,27 @@
 }
 .App-header li a {
 	color: black;
+}
+
+.sideProduct.product {
+	position: absolute;
+	top: 15rem;
+	transform: scale(0.7);
+	width: 25rem;
+}
+
+.sideProduct.product > .arrow {
+	display: none;
+}
+
+@media screen and (max-width: 1800px) {
+	.sideProduct.product {
+		position: relative;
+		width: 100%;
+		top: 0;
+	}
+	.sideProduct.product .card-text,
+	.sideProduct.product img {
+		display: none;
+	}
 }

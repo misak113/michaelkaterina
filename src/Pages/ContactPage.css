@@ -20,3 +20,29 @@
 	width: 45%;
 	margin-right: 1rem;
 }
+
+.contact .contactImage.before {
+	display: block;
+}
+
+.contact .contactImage.after {
+	display: none;
+}
+
+@media screen and (max-width: 800px) {
+	.contact .contactImage {
+		float: none;
+		width: 100%;
+	}
+	.contact .table {
+		width: 100%;
+	}
+	
+	.contact .contactImage.before {
+		display: none;
+	}
+
+	.contact .contactImage.after {
+		display: block;
+	}
+}

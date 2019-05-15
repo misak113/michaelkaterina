@@ -8,6 +8,12 @@
 	color: #333333;
 }
 
+@media screen and (max-width: 1200px) {
+	.shoppingCart {
+		top: 7rem;
+	}
+}
+
 .shoppingCart i.active {
 	color: #555555;
 }

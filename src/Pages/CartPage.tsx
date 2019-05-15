@@ -100,7 +100,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 			<p>
 				{
 					confirmation
-						? 'Děkujeme za potvrzení účasti. Moc se na vás budeme těšit. O novinkách a dalších plánech vám dáme včas vědět 😊'
+						? 'Děkujeme za potvrzení účasti. Budeme se na vás moc těšit. O novinkách a dalších plánech vám dáme včas vědět 😊'
 						: 'Je nám líto, že se nebudete moct zůčasnit, ale určitě si nejdeme jinou chvíli, kdy to spolu oslavíme.'
 				}
 				<br/><br/>

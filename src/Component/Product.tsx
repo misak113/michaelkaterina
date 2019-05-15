@@ -12,11 +12,11 @@ const addToCartButton = React.createRef<HTMLAnchorElement>();
 const Product: React.FC<IProps> = (props: IProps) => {
 	const cartItem = {
 		id: 'wedding',
-		name: 'Svatba Kateřiny a Michaela',
+		name: 'Svatba Kateřiny a Michaela',
 		description: <>
 			<p>
 				Během dne <b>28. září</b> bude rezonovat bujaré veselí. A bude to právě to svatební,<br/>
-				při kterém se její radostná empatie a jeho fascinující logika spojí v jedno.<br/>
+				při kterém se její radostná empatie a jeho fascinující logika spojí v jedno.<br/>
 				A s trochou pohádkového optimismu se již nikdy nerozpojí ♥
 			</p>
 			<p>

@@ -6,6 +6,9 @@
 	top: 1rem;
 	right: 4rem;
 	color: #333333;
+}
+
+.shoppingCart i {
 	opacity: 0.3;
 }
 

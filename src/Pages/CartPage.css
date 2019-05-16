@@ -116,6 +116,14 @@
 	.cartPage .plusOneLabel {
 		width: 3rem;
 	}
+
+	.cartPage .media-body {
+		margin-left: 1rem;
+	}
+
+	.cartPage .media h5 {
+		font-size: 130%;
+	}
 }
 
 .cartPage .form-group {

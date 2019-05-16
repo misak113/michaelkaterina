@@ -39,6 +39,12 @@
 	background-color: rgb(133, 56, 64);
 }
 
+@media screen and (max-width: 600px) {
+	.product .card-body {
+		padding-bottom: 3rem;
+	}
+}
+
 .product .price {
 	text-align: left;
 	display: table-cell;

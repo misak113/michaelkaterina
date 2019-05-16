@@ -121,7 +121,12 @@
 		margin-left: 1rem;
 	}
 
+	.cartPage .media img {
+		height: 5rem;
+	}
+	
 	.cartPage .media h5 {
+		margin-top: 0rem;
 		font-size: 130%;
 	}
 }

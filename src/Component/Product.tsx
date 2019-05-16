@@ -15,13 +15,13 @@ const Product: React.FC<IProps> = (props: IProps) => {
 		name: 'Svatba Kateřiny a Michaela',
 		description: <>
 			<p>
-				Během dne <b>28. září</b> bude rezonovat bujaré veselí. A bude to právě to svatební,<br/>
-				při kterém se její radostná empatie a jeho fascinující logika spojí v jedno.<br/>
+				Během dne <b>28. září</b> bude rezonovat bujaré veselí. A bude to právě to svatební,
+				při kterém se její radostná empatie a jeho fascinující logika spojí v jedno.
 				A s trochou pohádkového optimismu se již nikdy nerozpojí ♥
 			</p>
 			<p>
-				Celý den bude probíhat na <b>Statku u Prahy</b> od <b>jedné hodiny</b> odpolední<br/>
-				a oběma budoucím novomanželům bude ctí, když jej od začátku až <br/>
+				Celý den bude probíhat na <b>Statku u Prahy</b> od <b>jedné hodiny</b> odpolední
+				a oběma budoucím novomanželům bude ctí, když jej od začátku až
 				do konce prožijete s nimi.
 			</p>
 		</>,

@@ -35,3 +35,14 @@
 	font-size: 130%;
 	background-color: rgb(133, 56, 64);
 }
+
+@media screen and (max-width: 800px) {
+	.shoppingCart {
+		position: static;
+		font-size: 160%;
+	}
+
+	.shoppingCart .popover {
+		position: static;
+	}
+}

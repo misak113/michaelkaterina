@@ -190,7 +190,8 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 					)) : null}
 				</div>
 				<div className="form-group textarea">
-					<label htmlFor="food">Stravování</label>
+					<label htmlFor="food" className="desktop">Stravování</label>
+					<label htmlFor="food" className="mobile">Speciální stravovací<br/>návyky?</label>
 					<textarea value={food} onChange={(event) => setFood(event.target.value)} className="form-control" id="food" placeholder=""/>
 					<small id="foodHelp" className="form-text text-muted">Týká se Vás nějaké stravovací omezení či speciální návyky? Dejte nám vědět. Se všemi si poradíme.</small>
 				</div>

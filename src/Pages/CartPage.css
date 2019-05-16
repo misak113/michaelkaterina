@@ -108,6 +108,25 @@
 	max-width: 20%;
 }
 
+.cartPage label.mobile {
+	display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+	.cartPage .text-muted {
+		display: none;
+	}
+
+	.cartPage label.mobile {
+		display: inline-block;
+	}
+
+	.cartPage label.desktop {
+		display: none;
+	}
+}
+
 @media screen and (max-width: 800px) {
 	.cartPage .confirmationWrapper {
 		margin-left: auto;

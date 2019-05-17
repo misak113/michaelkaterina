@@ -199,8 +199,8 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 
 				<button disabled={!isValid()} type="submit" className="btn btn-default">Odeslat objednávku</button>
 				{!name && <div className="alert alert-warning" role="alert">Zadejte prosím své jméno</div>}
-				{(confirmation === true && (!email || !isValidEmail(email))) && <div className="alert alert-warning" role="alert">Zadejte prosím správný email</div>}
-				{confirmation === undefined && <div className="alert alert-warning" role="alert">Zaškrtněte prosím, zda se zůčastníš či ne</div>}
+				{(confirmation === true && (!email || !isValidEmail(email))) && <div className="alert alert-warning" role="alert">Zadejte prosím správný e-mail.</div>}
+				{confirmation === undefined && <div className="alert alert-warning" role="alert">Zaškrtněte prosím, zda se zůčastníte, či ne.</div>}
 				{submitingFailed && <div className="alert alert-danger" role="alert">
 					Při odesílání objednávky nastala chyba. Opakujte prosím odeslání.<br/>
 					V případě opětovného selhání prosím zkopírujte a pošlete následující informace na email: <a href="mailto: zabka.michael@gmail.com">zabka.michael@gmail.com</a>

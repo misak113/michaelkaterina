@@ -18,7 +18,6 @@ const ORDER_PLUS_ONE = 'ORDER_PLUS_ONE';
 const ORDER_PLUS_ONE_NAME = 'ORDER_PLUS_ONE_NAME';
 const ORDER_CHILDREN = 'ORDER_CHILDREN';
 const ORDER_CHILDREN_NAMES = 'ORDER_CHILDREN_NAMES';
-export const ORDER_SENT = 'ORDER_SENT';
 
 const CartPage: React.FC<IProps> = (props: IProps) => {
 
@@ -32,7 +31,6 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 	const [plusOneName, setPlusOneName] = useState(localStorage.getItem(ORDER_PLUS_ONE_NAME) || undefined);
 	const [children, setChildren] = useState(localStorage.getItem(ORDER_CHILDREN) ? parseInt(localStorage.getItem(ORDER_CHILDREN)!) : 0);
 	const [childrenNames, setChildrenNames] = useState<string[]>(localStorage.getItem(ORDER_CHILDREN_NAMES) ? JSON.parse(localStorage.getItem(ORDER_CHILDREN_NAMES)!) : []);
-	const [orderSent, setOrderSent] = useState<boolean | undefined>(!!localStorage.getItem(ORDER_SENT) || undefined);
 
 	const [submitingFailed, setSubmitingFailed] = useState(false);
 
@@ -75,8 +73,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 		try {
 			const document = createRegistrationDocument();
 			await props.firebaseApp.database().ref(`registrations/${documentId}`).set(document);
-			localStorage.setItem(ORDER_SENT, new Date().toISOString());
-			setOrderSent(true);
+			props.saveOrderSent(true);
 		} catch (error) {
 			console.error(error);
 			setSubmitingFailed(true);
@@ -94,7 +91,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 			&& name;
 	};
 
-	if (orderSent) {
+	if (props.orderSent) {
 		return <div className="cartPage">
 			<h2 className="confirmationText">Objednávka úspěšně odeslána</h2>
 			<p className="confirmationText">
@@ -107,7 +104,7 @@ const CartPage: React.FC<IProps> = (props: IProps) => {
 				<small>
 					Chcete-li provést jakékoli změny, můžete tak učinit <a href="#" onClick={(event) => {
 						event.preventDefault();
-						setOrderSent(false);
+						props.saveOrderSent(false);
 					}}>klinutím zde</a><br/>
 					anebo nám dejte vědět na e-mailovou adresu <a href="mailto: zabka.michael@gmail.com">zabka.michael@gmail.com</a>
 				</small>

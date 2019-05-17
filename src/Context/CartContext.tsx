@@ -2,6 +2,8 @@ import React, { useState, ReactNode } from 'react';
 import _ from 'lodash';
 import './CartContext.css';
 
+export const ORDER_SENT = 'ORDER_SENT';
+
 export interface ICartItem {
 	id: string;
 	name: string;
@@ -12,6 +14,8 @@ export interface ICartValue {
 	items: ICartItem[];
 	addItem: (item: ICartItem, fromRef?: React.RefObject<HTMLElement>) => Promise<void>;
 	removeItem: (item: ICartItem) => Promise<void>;
+	orderSent: boolean | undefined;
+	saveOrderSent: (orderSent: boolean) => void;
 }
 
 export const CartContext = React.createContext<ICartValue>({} as ICartValue);
@@ -44,6 +48,11 @@ function getCartButtonCoordination() {
 const CART_ITEMS = 'CART_ITEMS';
 
 export function CartProvider(props: IOwnProps) {
+	const [orderSent, setOrderSent] = useState<boolean | undefined>(!!localStorage.getItem(ORDER_SENT) || undefined);
+	const saveOrderSent = (wasSent: boolean) => {
+		localStorage.setItem(ORDER_SENT, new Date().toISOString());
+		setOrderSent(wasSent);
+	};
 	const storedCartItemsString = localStorage.getItem(CART_ITEMS);
 	const storedCartItems = storedCartItemsString ? JSON.parse(storedCartItemsString) : [];
 	const [items, setItems] = useState<ICartItem[]>(storedCartItems);
@@ -82,7 +91,7 @@ export function CartProvider(props: IOwnProps) {
 		setItems(newCartItems);
 	};
 	return (
-		<CartContext.Provider value={{ addItem, removeItem, items }}>
+		<CartContext.Provider value={{ addItem, removeItem, items, orderSent, saveOrderSent }}>
 			{props.children}
 		</CartContext.Provider>
 	);

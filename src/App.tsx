@@ -19,17 +19,21 @@ const facebookLogo = require('./facebook-logo.png');
 
 const cartItemRef = React.createRef<HTMLAnchorElement>();
 
+const scrollTopAfterNavigate = 400;
+
 const pages = [
 	{
 		name: 'O svatbě',
 		path: '/',
 		render: () => <HomepagePage/>,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: 'Místo',
 		path: '/misto',
 		render: () => <LocationPage/>,
 		showProductOnSide: true,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: 'Dary',
@@ -37,6 +41,7 @@ const pages = [
 		disabled: false,
 		render: () => <GiftsPage/>,
 		showProductOnSide: true,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: 'Ubytování',
@@ -44,6 +49,7 @@ const pages = [
 		render: () => <AccomodationPage/>,
 		disabled: false,
 		showProductOnSide: true,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: 'Harmonogram',
@@ -51,6 +57,7 @@ const pages = [
 		render: () => <AgendaPage/>,
 		disabled: false,
 		showProductOnSide: true,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: 'Kontakt',
@@ -58,6 +65,7 @@ const pages = [
 		render: () => <ContactPage/>,
 		hiddenInMenu: false,
 		showProductOnSide: true,
+		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: <img src={facebookLogo} width="20" height="20" />,
@@ -90,6 +98,7 @@ const App: React.FC = () => {
 											'active': page.path === currentPath,
 											'disabled': page.disabled || false,
 										})}
+										onClick={page.onClick}
 										href={page.path}
 										target={page.path.indexOf('https://www.facebook.com') === 0 ? '_blank' : undefined}
 									>

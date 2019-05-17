@@ -18,6 +18,9 @@ declare global {
 
 const Anchor = (props: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) => (
 	<a {...props} onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+		if (props.onClick) {
+			props.onClick(event);
+		}
 		if (props.href && props.href.indexOf('https://www.facebook.com') !== 0) {
 			event.preventDefault();
 			window.history.pushState(undefined, '', props.href);

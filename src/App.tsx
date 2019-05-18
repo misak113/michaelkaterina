@@ -92,10 +92,11 @@ const App: React.FC = () => {
 					<header className="App-header">
 						<ul className="nav justify-content-center">
 							{pages.filter((page) => !page.hiddenInMenu).map((page) => (
-								<li key={page.path} className="nav-item">
+								<li key={page.path} className={classNames("nav-item", {
+									'active': page.path === currentPath,
+								})}>
 									<Anchor
 										className={classNames("nav-link", {
-											'active': page.path === currentPath,
 											'disabled': page.disabled || false,
 										})}
 										onClick={page.onClick}

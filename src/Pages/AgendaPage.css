@@ -4,8 +4,65 @@
 }
 
 .agenda h2 {
-	padding-top: 10rem;
+	padding-top: 4rem;
 	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 150%;
+	text-align: left;
+}
+.agenda h2:nth-child(4) {
+	padding-top: 2rem;
+}
+
+.agenda p {
+	text-align: left;
+}
+
+.agenda table {
+	max-width: 30rem;
+	width: 45%;
+	margin-top: 2rem;
+}
+
+.agenda table tr {
+	text-align: left;
+}
+
+.agenda table th {
+	padding-left: 2rem;
+}
+
+.agenda .agendaImage {
+	width: 50%;
+	float: right;
+	margin-top: 1rem;
+	margin-left: 3rem;
+}
+
+.agenda .agendaImage.before {
+	display: block;
+}
+
+.agenda .agendaImage.after {
+	display: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.agenda .agendaImage {
+		float: none;
+		width: 100%;
+		margin-top: 2rem;
+		margin-left: auto;
+	}
+	.agenda .table {
+		width: 100%;
+	}
+
+	.agenda .agendaImage.before {
+		display: none;
+	}
+
+	.agenda .agendaImage.after {
+		display: block;
+	}
 }

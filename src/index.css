@@ -22,3 +22,8 @@ code {
 	font-family: WinterCalligraphy;
 	src: url(./Winter-Calligraphy.ttf);
 }
+
+@font-face {
+	font-family: MelindaScript;
+	src: url(./Melinda-script.ttf);
+}

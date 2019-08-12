@@ -14,16 +14,16 @@
 	padding-top: 3rem;
 	text-align: center;
 	font-size: 8rem;
-	font-family: AlluraRegular;
+	font-family: MelindaScript;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	.nameHead {
 		font-size: 5rem;
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
 	.nameHead {
 		font-size: 4rem;
 	}

@@ -87,7 +87,7 @@ const App: React.FC = () => {
 			<CartProvider toRef={cartItemRef}>
 				<div className="App">
 					<header className="nameHead">
-						Kateřina &amp; Michael
+						Katerina &amp; Michael
 					</header>
 					<header className="App-header">
 						<ul className="nav justify-content-center">

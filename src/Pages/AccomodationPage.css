@@ -1,11 +1,56 @@
 
 .accomodation {
-	text-align: center;
+	text-align: left;
 }
 
 .accomodation h2 {
-	padding-top: 10rem;
+	padding-top: 5rem;
 	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 150%;
+}
+
+.accomodation a {
+	color: grey;
+	text-decoration: underline;
+}
+
+.accomodation a:hover {
+	color: black;
+}
+
+.accomodation .list td {
+	width: 33%;
+}
+
+.accomodation .accomodationIimage {
+	width: 50%;
+	float: right;
+	margin-top: 5rem;
+	margin-left: 3rem;
+}
+
+.accomodation .accomodationIimage.before {
+	display: block;
+}
+
+.accomodation .accomodationIimage.after {
+	display: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.accomodation .accomodationIimage {
+		float: none;
+		width: 100%;
+		margin-top: 2rem;
+		margin-left: auto;
+	}
+
+	.accomodation .accomodationIimage.before {
+		display: none;
+	}
+
+	.accomodation .accomodationIimage.after {
+		display: block;
+	}
 }

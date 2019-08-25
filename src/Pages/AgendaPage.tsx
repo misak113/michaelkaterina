@@ -40,11 +40,11 @@ const AgendaPage: React.FC = () => {
 					<td>Odpolední program a odpočinek</td>
 				</tr>
 				<tr>
-					<th>16:30</th>
+					<th>17:00</th>
 					<td>Krájení dortu</td>
 				</tr>
 				<tr>
-					<th>17:00</th>
+					<th>17:15</th>
 					<td>Novomanželské focení v přírodě</td>
 				</tr>
 				<tr>
@@ -52,7 +52,7 @@ const AgendaPage: React.FC = () => {
 					<td>Házení kytice</td>
 				</tr>
 				<tr>
-					<th>20:00</th>
+					<th>19:30</th>
 					<td>První novomanželský tanec</td>
 				</tr>
 				<tr>

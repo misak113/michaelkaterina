@@ -1,11 +1,43 @@
 
 .gifts {
-	text-align: center;
+	text-align: left;
 }
 
 .gifts h2 {
-	padding-top: 10rem;
+	padding-top: 5rem;
 	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 150%;
+}
+
+.gifts .giftsIimage {
+	width: 50%;
+	float: right;
+	margin-top: 5rem;
+	margin-left: 3rem;
+}
+
+.gifts .giftsIimage.before {
+	display: block;
+}
+
+.gifts .giftsIimage.after {
+	display: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.gifts .giftsIimage {
+		float: none;
+		width: 100%;
+		margin-top: 2rem;
+		margin-left: auto;
+	}
+
+	.gifts .giftsIimage.before {
+		display: none;
+	}
+
+	.gifts .giftsIimage.after {
+		display: block;
+	}
 }

@@ -55,7 +55,7 @@ const AccomodationPage: React.FC = () => {
 					<p>
 						Snídaně není součástí pobytu. Pokud o ni budete mít zájem,
 						zavolejte si prosím do penzionu. Snídaně se podává
-						mezi 8:00 - 10:00 a cena za osobu je 100 korun.
+						mezi 8:00 - 10:00 a cena za osobu je 150 korun.
 					</p>
 				</td>
 				<td>

@@ -14,6 +14,15 @@ const AgendaPage: React.FC = () => {
 			Kdybyste ale náhodou někdo chtěl opravdu ladit, většina dne se ponese v odstínech eukalyptové zelené a světlounké rúžové :)
 		</p>
 
+		<h2>Na místě</h2>
+		<p>
+			Velká část nápojů půjde navrub novomanželům a bude je možné vychutnávat až do noci. Něco ostřejšího už by ale barman připsal na váš účet.
+			Dopředu proto hlásíme, že na místě nepůjde platit kartou a popřípadě bude třeba mít u sebe hotovost.
+		</p>
+		<p>
+			Místo u stolu máme i pro ty nejmenší miminka. S kočárkem by to ovšem mohlo být v rámci koordinace trochu nekomfortní. Bylo by tedy lepší, kdyby děti mohly být u stolu ve vajíčku a kočárek by zůstal stranou. Pokud by to ale bez něj nešlo, dejte nám vědět a nějak to vymyslíme :)
+		</p>
+
 		<h2>Harmonogram svatebního dne</h2>
 		
 		{agendaImageElement('before')}
@@ -40,11 +49,11 @@ const AgendaPage: React.FC = () => {
 					<td>Odpolední program a odpočinek</td>
 				</tr>
 				<tr>
-					<th>17:00</th>
+					<th>16:30</th>
 					<td>Krájení dortu</td>
 				</tr>
 				<tr>
-					<th>17:15</th>
+					<th>16:45</th>
 					<td>Novomanželské focení v přírodě</td>
 				</tr>
 				<tr>
@@ -52,7 +61,7 @@ const AgendaPage: React.FC = () => {
 					<td>Házení kytice</td>
 				</tr>
 				<tr>
-					<th>19:30</th>
+					<th>20:00</th>
 					<td>První novomanželský tanec</td>
 				</tr>
 				<tr>

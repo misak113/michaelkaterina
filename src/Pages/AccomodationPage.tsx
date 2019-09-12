@@ -24,10 +24,10 @@ const AccomodationPage: React.FC = () => {
 		{accomodationImageElement('before')}
 		<h2>Ubytování</h2>
 		<p>
-			Jak už víte, nepodaří se nám zajistit ubytování v místě svatby všem. Našli jsme ale hezké penziony ve vesnici vedle, do kterých vám ve večerních hodinách zajistíme odvoz, popř. i s autem. 
+			Jak už víte, nepodaří se nám zajistit ubytování v místě svatby všem. Našli jsme ale hezké penziony ve vesnici vedle, do kterých vám <b>od 21:00 do 3:00 zajistíme odvoz, popř. i s autem.</b> 
 		</p>
 		<p>
-			Pokud jste měli o ubytování zájem, napsali jsme vám do zprávy název penzionu, ve kterém budete přespávat. Pokoj jsme vám zamluvili na jméno, aby na každého vyzbylo místo. Už si jej tedy nemusíte rezervovat. Kdybyste si náhodou ubytování rozmysleli, dejte nám prosím vědět.
+			Pokud jste měli o ubytování zájem, napsali jsme vám do zprávy název penzionu, ve kterém budete přespávat. Pokoj jsme vám zamluvili na jméno, aby na každého vyzbylo místo. Už si jej tedy nemusíte rezervovat. Kdybyste si náhodou ubytování rozmysleli, dejte nám prosím vědět.
 		</p>
 		{accomodationImageElement('after')}
 		<table className="table list">

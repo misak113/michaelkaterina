@@ -1,0 +1,83 @@
+
+.images {
+	text-align: center;
+}
+
+.images h2 {
+	padding-top: 4rem;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 150%;
+	text-align: left;
+}
+
+.images p {
+	text-align: left;
+}
+
+.images .carouselWrapper .imageCarousel img {
+	width: 1200px;
+	height: 800px;
+	object-fit: contain;
+	background-color: black;
+}
+
+.images .carouselWrapper .imageCarousel .download {
+	position: absolute;
+	z-index: 100;
+	right: 20px;
+	top: 20px;
+	width: 60px;
+	height: 60px;
+	opacity: 0.5;
+	filter: blur(1px);
+}
+.images .carouselWrapper .imageCarousel .download:hover {
+	opacity: 1;
+	filter: blur(0);
+}
+.images .carouselWrapper .imageCarousel .download:hover::before {
+	content: 'Stáhnout';
+	position: absolute;
+	left: -120px;
+	top: 5px;
+	color: white;
+	text-decoration: none;
+	font-size: 30px;
+}
+
+.images .imagesWrapper {
+	display: flex;
+    align-items: flex-start;
+	flex-wrap: wrap;
+	background-color: #DDD;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.images .imagesWrapper .imagePreview {
+	position: relative;
+	width: 200px;
+	height: 133px;
+	display: inline-block;
+	margin-left: 18px;
+	margin-top: 18px;
+	cursor: pointer;
+}
+
+.images .imagesWrapper .imagePreview img {
+	width: 200px;
+	height: 133px;
+	object-fit: contain;
+	background-color: black;
+}
+
+.images .imagesWrapper .imagePreview.topped,
+.images .imagesWrapper .imagePreview.topped img {
+	width: 420px;
+	height: 281px;
+}
+
+.images .controls button {
+	margin: 1rem;
+}

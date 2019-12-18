@@ -1,0 +1,24 @@
+
+.video {
+	text-align: center;
+}
+
+.video h2 {
+	padding-top: 4rem;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 150%;
+	text-align: left;
+}
+
+.video p {
+	text-align: left;
+}
+
+.video .videoWrapper video {
+	width: 100%;
+}
+
+.video .controls {
+	margin: 2rem;
+}

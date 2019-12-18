@@ -4,14 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import './App.css';
 import HomepagePage from './Pages/HomepagePage';
-import LocationPage from './Pages/LocationPage';
-import GiftsPage from './Pages/GiftsPage';
-import AccomodationPage from './Pages/AccomodationPage';
-import AgendaPage from './Pages/AgendaPage';
 import Anchor from './Anchor';
-import CartPage from './Pages/CartPage';
 import { CartProvider, CartContext, ICartValue } from './Context/CartContext';
-import CartButton from './Component/CartButton';
+import VideoPage from './Pages/VideoPage';
+import ImagesPage from './Pages/ImagesPage';
 import ContactPage from './Pages/ContactPage';
 import { DatabaseProvider } from './Context/DatabaseContext';
 import Product from './Component/Product';
@@ -23,40 +19,24 @@ const scrollTopAfterNavigate = 400;
 
 const pages = [
 	{
-		name: 'O svatbě',
+		name: 'Poděkování',
 		path: '/',
 		render: () => <HomepagePage/>,
 		onClick: () => window.scroll(0, scrollTopAfterNavigate),
+		showProductOnSide: false,
 	},
 	{
-		name: 'Místo',
-		path: '/misto',
-		render: () => <LocationPage/>,
-		showProductOnSide: true,
+		name: 'Fotografie',
+		path: '/fotografie',
+		render: () => <ImagesPage/>,
+		hiddenInMenu: false,
 		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
-		name: 'Dary',
-		path: '/dary',
-		disabled: false,
-		render: () => <GiftsPage/>,
-		showProductOnSide: true,
-		onClick: () => window.scroll(0, scrollTopAfterNavigate),
-	},
-	{
-		name: 'Ubytování',
-		path: '/ubytovani',
-		render: () => <AccomodationPage/>,
-		disabled: false,
-		showProductOnSide: true,
-		onClick: () => window.scroll(0, scrollTopAfterNavigate),
-	},
-	{
-		name: 'Harmonogram',
-		path: '/harmonogram',
-		render: () => <AgendaPage/>,
-		disabled: false,
-		showProductOnSide: true,
+		name: 'Svatební video',
+		path: '/video',
+		render: () => <VideoPage/>,
+		hiddenInMenu: false,
 		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
@@ -64,17 +44,11 @@ const pages = [
 		path: '/kontakt',
 		render: () => <ContactPage/>,
 		hiddenInMenu: false,
-		showProductOnSide: true,
 		onClick: () => window.scroll(0, scrollTopAfterNavigate),
 	},
 	{
 		name: <img src={facebookLogo} width="20" height="20" />,
 		path: 'https://www.facebook.com/events/362213487833947/',
-	},
-	{
-		name: <CartButton buttonRef={cartItemRef} />,
-		path: '/kosik',
-		render: () => <CartPage/>,
 	},
 ];
 
@@ -96,9 +70,7 @@ const App: React.FC = () => {
 									'active': page.path === currentPath,
 								})}>
 									<Anchor
-										className={classNames("nav-link", {
-											'disabled': page.disabled || false,
-										})}
+										className={classNames("nav-link", {})}
 										onClick={page.onClick}
 										href={page.path}
 										target={page.path.indexOf('https://www.facebook.com') === 0 ? '_blank' : undefined}

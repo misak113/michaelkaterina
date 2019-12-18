@@ -4,6 +4,8 @@ import './ImagesPage.css';
 import { Carousel } from 'react-responsive-carousel';
 import jQuery from 'jquery';
 const MdDownload = require('react-ionicons/lib/MdDownload');
+const MdArrowForward = require('react-ionicons/lib/MdArrowForward');
+const MdArrowBack = require('react-ionicons/lib/MdArrowBack');
 
 const imageFilenames: string[] = require('./imagesFileNames.json');
 
@@ -170,12 +172,13 @@ const ImagesPage: React.FC = () => {
 			})}
 		</div>
 		<div className={'controls'}>
-			{startImageIndex > 0 && <button className={'btn btn-dark'} onClick={() => setStartImageIndex(
+			{startImageIndex > 0 && <button className={'btn btn-dark prev'} onClick={() => setStartImageIndex(
 				Math.max(0, startImageIndex - PAGE_COUNT)
 			)}>
-				Načíst předchozí fotky
+				<span className="text">Načíst předchozí fotky</span>
+				<span className="icon"><MdArrowBack color="white"/></span>
 			</button>}
-			{startImageIndex < imageFilenames.length - PAGE_COUNT && <button className={'btn btn-dark'} onClick={() => {
+			{startImageIndex < imageFilenames.length - PAGE_COUNT && <button className={'btn btn-dark next'} onClick={() => {
 				if (window.document.body.clientWidth < 992) {
 					const scrollTop = imagesWrapperRef.current!.getBoundingClientRect().top + window.scrollY;
 					jQuery('html, body').animate({ scrollTop }, 300);
@@ -184,7 +187,8 @@ const ImagesPage: React.FC = () => {
 					Math.min(imageFilenames.length - PAGE_COUNT, startImageIndex + realPageCount)
 				);
 			}}>
-				Načíst další fotky
+				<span className="text">Načíst další fotky</span>
+				<span className="icon"><MdArrowForward color="white"/></span>
 			</button>}
 		</div>
 	</div>;

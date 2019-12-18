@@ -80,6 +80,25 @@
 
 .images .controls button {
 	margin: 1rem;
+	position: fixed;
+}
+
+.images .controls button.next {
+    right: 0px;
+    bottom: 0px;
+}
+
+.images .controls button.prev {
+    left: 0px;
+    bottom: 0px;
+}
+
+.images .controls button.next .icon {
+	display: none;
+}
+
+.images .controls button.prev .icon {
+	display: none;
 }
 
 @media screen and (max-width: 1200px) {
@@ -122,7 +141,22 @@
 		width: 420px;
 		height: 281px;
 	}
+
+	.images .controls button.next .text {
+		display: none;
+	}
 	
+	.images .controls button.prev .text {
+		display: none;
+	}
+
+	.images .controls button.next .icon {
+		display: block;
+	}
+	
+	.images .controls button.prev .icon {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 500px) {

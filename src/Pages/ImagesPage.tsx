@@ -146,7 +146,7 @@ const ImagesPage: React.FC = () => {
 		</div>
 		<div ref={imagesWrapperRef} className="imagesWrapper">
 			{loadedFilenames.map((filename: string, index: number) => {
-				const resolution = isTopped(filename) ? '400x266' : '200x133';
+				const resolution = isTopped(filename) || window.document.body.clientWidth < 500 ? '400x266' : '200x133';
 				const largeImageUri = `${IMAGE_BASE_URL}/thumbnails/1200x800/${filename}`;
 				const imageUri = `${IMAGE_BASE_URL}/thumbnails/${resolution}/${filename}`;
 				return (

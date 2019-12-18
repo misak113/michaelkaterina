@@ -92,6 +92,7 @@ function isTopped(filename: string): unknown {
 }
 
 const carouselRef = React.createRef<HTMLDivElement>();
+const imagesWrapperRef = React.createRef<HTMLDivElement>();
 
 const ImagesPage: React.FC = () => {
 	const [startImageIndex, setStartImageIndex] = useState(0);
@@ -143,7 +144,7 @@ const ImagesPage: React.FC = () => {
 			})}
 		</Carousel>
 		</div>
-		<div className="imagesWrapper">
+		<div ref={imagesWrapperRef} className="imagesWrapper">
 			{loadedFilenames.map((filename: string, index: number) => {
 				const resolution = isTopped(filename) ? '400x266' : '200x133';
 				const largeImageUri = `${IMAGE_BASE_URL}/thumbnails/1200x800/${filename}`;
@@ -174,9 +175,15 @@ const ImagesPage: React.FC = () => {
 			)}>
 				Načíst předchozí fotky
 			</button>}
-			{startImageIndex < imageFilenames.length - PAGE_COUNT && <button className={'btn btn-dark'} onClick={() => setStartImageIndex(
-				Math.min(imageFilenames.length - PAGE_COUNT, startImageIndex + realPageCount)
-			)}>
+			{startImageIndex < imageFilenames.length - PAGE_COUNT && <button className={'btn btn-dark'} onClick={() => {
+				if (window.document.body.clientWidth < 992) {
+					const scrollTop = imagesWrapperRef.current!.getBoundingClientRect().top + window.scrollY;
+					jQuery('html, body').animate({ scrollTop }, 300);
+				}
+				setStartImageIndex(
+					Math.min(imageFilenames.length - PAGE_COUNT, startImageIndex + realPageCount)
+				);
+			}}>
 				Načíst další fotky
 			</button>}
 		</div>

@@ -10,5 +10,21 @@
 .homepage .image {
 	width: 50%;
 	float: right;
-	margin-left: 10px;
+	margin-left: 30px;
+}
+
+@media screen and (max-width: 992px) {
+	.homepage {
+		text-align: center;
+	}
+
+	.homepage h2 {
+		margin-top: 20px;
+	}
+
+	.homepage .image {
+		width: 100%;
+		float: none;
+		margin-left: auto;
+	}
 }

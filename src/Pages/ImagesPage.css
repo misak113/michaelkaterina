@@ -81,3 +81,60 @@
 .images .controls button {
 	margin: 1rem;
 }
+
+@media screen and (max-width: 1200px) {
+	.images .carouselWrapper .imageCarousel img {
+		width: 930px;
+		height: 620px;
+	}	
+}
+
+@media screen and (max-width: 992px) {
+	.images .carouselWrapper .imageCarousel img {
+		width: 690px;
+		height: 460px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.images .carouselWrapper .imageCarousel img {
+		width: 510px;
+		height: 340px;
+	}
+
+	.images .imagesWrapper {
+		justify-content: center;
+	}
+
+	.images .imagesWrapper .imagePreview {
+		margin-left: 9px;
+		margin-right: 9px;
+	}
+
+	.images .imagesWrapper .imagePreview,
+	.images .imagesWrapper .imagePreview img {
+		width: 200px;
+		height: 133px;
+	}
+	
+	.images .imagesWrapper .imagePreview.topped,
+	.images .imagesWrapper .imagePreview.topped img {
+		width: 420px;
+		height: 281px;
+	}
+	
+}
+
+@media screen and (max-width: 500px) {
+	.images .carouselWrapper {
+		display: none;
+	}
+
+	.images .imagesWrapper .imagePreview,
+	.images .imagesWrapper .imagePreview img,
+	.images .imagesWrapper .imagePreview.topped,
+	.images .imagesWrapper .imagePreview.topped img {
+		width: 100%;
+		height: auto;
+	}
+}

@@ -146,19 +146,25 @@ const ImagesPage: React.FC = () => {
 		<div className="imagesWrapper">
 			{loadedFilenames.map((filename: string, index: number) => {
 				const resolution = isTopped(filename) ? '400x266' : '200x133';
+				const largeImageUri = `${IMAGE_BASE_URL}/thumbnails/1200x800/${filename}`;
 				const imageUri = `${IMAGE_BASE_URL}/thumbnails/${resolution}/${filename}`;
 				return (
-					<div
+					<a
+						href={largeImageUri}
+						target="_blank"
 						key={filename}
 						className={classNames("imagePreview", { 'topped': isTopped(filename) })}
-						onClick={() => {
-							setCurrentItemRelativeIndex(index);
-							const scrollTop = carouselRef.current!.getBoundingClientRect().top + window.scrollY;
-							jQuery('html, body').animate({ scrollTop }, 300);
+						onClick={(event) => {
+							if (window.document.body.clientWidth >= 500) {
+								event.preventDefault();
+								setCurrentItemRelativeIndex(index);
+								const scrollTop = carouselRef.current!.getBoundingClientRect().top + window.scrollY;
+								jQuery('html, body').animate({ scrollTop }, 300);
+							}
 						}}
 					>
 						<img src={imageUri} />
-					</div>
+					</a>
 				);
 			})}
 		</div>
